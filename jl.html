@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dil/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./dil/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./dil/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css">
+    <style>
+        .jumbotron {
+            background-image: url("./static/img/startNight.jpeg");
+            background-position: center;
+        }
+
+        footer {
+            height: 100px;
+            background-color: #eee;
+        }
+
+        .fixed-bottom {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!--导航条-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="#"><strong><i class="fa fa-bandcamp" aria-hidden="true"></i> WEB前端</strong></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="./table.html">考勤表</a></li>
+                    <li><a href="./bwl.html">备忘录</a></li>
+                    <li class="active"><a href="./jl.html">简历</a></li>
+                    <li><a href="./ajax.html">Ajax</a></li>
+                    <li><a href="./ajax2.html">Ajax2</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!--巨幕-->
+    <div class="jumbotron">
+        <div class="container" style="height:230px;text-align:center;">
+            <h1 style="color:#fff;padding-top:50px;">简历生成</h1>
+            <p style="color:#fff;">DEMO</p>
+        </div>
+    </div>
+    <!--页面主体-->
+    <div class="container">
+        <div class="row" style="margin-bottom:30px;">
+            <!--录入盒子-->
+            <div class="col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-2" id="box1" style="margin-bottom:10px;">
+                <from>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="birthday" name="birthday" placeholder="生日">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-9">
+                        <select class="form-control" id="zy">
+                            <option>学生</option>
+                            <option>老师</option>
+                            <option>警察</option>
+                            <option>司机</option>
+                            <option>医生</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-md-3" style="padding-top:5px;">
+                        <div class="form-group">
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="男"> 男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="女" checked> 女
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" value="option1" name="checkbox"> 1
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox2" value="option2" name="checkbox"> 2
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox3" value="option3" name="checkbox"> 3
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox4" value="option4" name="checkbox"> 4
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox5" value="option5" name="checkbox"> 5
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox6" value="option6" name="checkbox"> 6
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox7" value="option7" name="checkbox"> 7
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox8" value="option8" name="checkbox"> 8
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox9" value="option9" name="checkbox"> 9
+                        </label>
+                    </div>
+                    <div class="col-xs-12">
+                        <textarea class="form-control" rows="3" id="grjl"></textarea>
+                    </div>
+                    <div class="col-xs-12" style="margin-top:10px;text-align:center;">
+                        <button class="btn btn-primary btn-block" onclick="getMsg();">提交</button>
+                    </div>
+                </from>
+            </div>
+            <!--展示盒子-->
+            <div class="col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-2" id="box2" style="display: none;">
+                <div class="panel panel-default">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>姓名</th>
+                            <td class="jl_name"></td>
+                            <th>性别</th>
+                            <td class="jl_sex"></td>
+                        </tr>
+                        <tr>
+                            <th>职业</th>
+                            <td class="jl_zy"></td>
+                            <th>生日</th>
+                            <td class="jl_birthday"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="4">爱好</th>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <ul class="jl_ah">
+
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="4">个人经历</th>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="jl_grjl"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--动画盒子-->
+            <div class="col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-2" id="box3" style="display: none;">
+                <div class="col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body" style="text-align:center">
+                            <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12" style="text-align: center;padding-top:30px;">
+                    <h4><small>前端培训项目&nbsp;|&nbsp;2017 <i class="fa fa-copyright" aria-hidden="true"></i> 前端小组</small></h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./dil/jquery/jquery.js"></script>
+    <script src="./dil/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+    <script src="./dil/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            function footerPosition() {
+                $("footer").removeClass("fixed-bottom");
+                var contentHeight = document.body.scrollHeight,//网页正文全文高度
+                    winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
+                if (!(contentHeight > winHeight)) {
+                    //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
+                    $("footer").addClass("fixed-bottom");
+                } else {
+                    $("footer").removeClass("fixed-bottom");
+                }
+            }
+            footerPosition();
+            $(window).resize(footerPosition);
+            $('#birthday').datetimepicker({
+                format: 'yyyy-mm-dd',
+                autoclose:true,
+                minView:3
+            });
+        });
+        //日期选择器汉化
+        $.fn.datetimepicker.dates['en'] = {
+                    days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+                    daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+                    daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
+                    months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                    monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                    today: "今天",
+                    suffix: [],
+                    meridiem: ["上午", "下午"]
+        };
+        //获取对应名字的多选框的值的数组
+        function checkObtain(name) {
+            var checkArray = document.getElementsByName(name);
+            var dataArray = [];
+            var index = 0;
+            for (var i = 0; i < checkArray.length; i++) {
+                if (checkArray[i].checked) {
+                    dataArray.push(checkArray[i].value);
+                }
+            }
+            //console.log(dataArray);
+            return dataArray;
+        }
+        function getMsg() {
+            var obj = {
+                name: "",
+                birthday:"",
+                sex: "",
+                zy: "",
+                ah: [],
+                grjl: ""
+            };
+            obj.name = $('#name').val();
+            obj.sex = $("input[name='inlineRadioOptions']:checked").val();
+            obj.zy = $('#zy').val();
+            obj.ah = checkObtain("checkbox");
+            obj.grjl = $('#grjl').val();
+            obj.birthday = $('#birthday').val();
+            console.log(obj);
+            setMsg(obj);
+            $("#box1").slideUp();
+            $("#box3").slideDown();
+            setTimeout('$("#box3").slideUp();$("#box2").slideDown();',2000);
+        }
+        function setMsg(data){
+            //清空爱好数据
+            $(".jl_ah").empty();
+
+            $(".jl_name").text(data.name);
+            $(".jl_sex").text(data.sex);
+            $(".jl_zy").text(data.zy);
+            $(".jl_grjl").text(data.grjl);
+            $(".jl_birthday").text(data.birthday);
+            //遍历爱好
+            for( var i=0;i<data.ah.length;i++){
+                $(".jl_ah").append("<li>"+data.ah[i]+"</li>");
+            }
+        }
+    </script>
+</body>
+
+</html>
