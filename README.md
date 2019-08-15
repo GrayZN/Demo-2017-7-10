@@ -8,4 +8,4 @@
 * 豆瓣API
 
 ## 使用方式
-### 下载源码,访问 index.html 即可
+* 下载源码,访问 index.html 即可
